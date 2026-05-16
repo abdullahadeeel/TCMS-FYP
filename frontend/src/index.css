@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #6366f1;
+  --secondary: #a855f7;
+  --accent: #f43f5e;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-dark: rgba(15, 23, 42, 0.8);
+  --grad: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top right, #e0e7ff, #f8fafc);
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Navbar */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: var(--glass);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 10%;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Stunning Cards */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Dashboard Sidebar Layout */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  background: var(--dark);
+  color: white;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar h2 { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.7; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: #94a3b8;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 3rem;
+  background: #f1f5f9;
+}
+
+/* Inputs & Buttons */
+input, select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  margin-bottom: 1.2rem;
+  font-family: inherit;
+}
+
+button {
+  background: var(--grad);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-card .value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+.stat-card .label { color: #64748b; font-size: 0.9rem; }

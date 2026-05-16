@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: abdullah
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: tcms_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DB_USER: abdullah
+      DB_PASSWORD: 123
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: tcms_db
+      JWT_SECRET: supersecretkey
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
